@@ -20,6 +20,5 @@ module.exports = {
   rules: {
     "no-console": "off",
     "vue/no-multiple-template-root": "off",
-    quotes: ["error", "double"]
   }
 }

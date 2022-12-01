@@ -9,10 +9,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
     "skipLibCheck": true,
-
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "baseUrl": "."
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
 }
