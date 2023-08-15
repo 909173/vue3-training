@@ -1,14 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
-import Login from "@/pages/LoginPage.vue"
-import Employees from "@/pages/EmployeePage.vue"
+import PrefectureListVue from "@/pages/PrefectureList.vue"
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: Login
-  },
-  {
-    path: "/employees",
-    component: Employees
+    component: PrefectureListVue
   }
 ]
 export default createRouter({
