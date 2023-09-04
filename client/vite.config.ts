@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 3700,
     proxy: {
-      "/api": "https://localhost:3699"
+      "/api": "https://opendata.resas-portal.go.jp/api/v1"
     }
   },
   resolve: {

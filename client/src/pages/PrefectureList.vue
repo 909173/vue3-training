@@ -9,6 +9,7 @@
   max-width: 900px;
   width: 100%;
 }
+
 .prefecture-flex {
   display: grid;
   grid-template-columns: 33% 33% 33%;
