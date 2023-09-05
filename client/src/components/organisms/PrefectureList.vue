@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+import { ref } from "vue"
+</script>
 <template>
   <div class="prefecture-container">
-    <div class="prefecture-flex"></div>
+    <h3>都道府県</h3>
+    <div class="prefecture-flex">
+      <!-- TODO: 県を表示してみましょう -->
+    </div>
   </div>
 </template>
 <style scoped>

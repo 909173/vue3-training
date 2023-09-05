@@ -1,11 +1,12 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import PrefectureListHeader from "@/components/organisims/globals/PrefectureListHeader.vue"
+// import PrefectureListHeader from "@/components/organisims/globals/PrefectureListHeader.vue"
+import ProjectHeader from "@/components/organisms/ProjectHeader.vue"
 </script>
 
 <template>
-  <PrefectureListHeader></PrefectureListHeader>
+  <ProjectHeader></ProjectHeader>
   <router-view></router-view>
 </template>
 

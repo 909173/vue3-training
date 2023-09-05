@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
-import PrefectureListVue from "@/pages/PrefectureList.vue"
+import PrefecturePopulation from "@/pages/PrefecturePopulation.vue"
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: PrefectureListVue
+    component: PrefecturePopulation
   }
+  // TODO: もう1ページ, ExcludePrefectureListを追加してください
 ]
 export default createRouter({
   history: createWebHistory(),

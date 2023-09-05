@@ -25,3 +25,9 @@ npm run build
 ```bash
 npm run preview
 ```
+
+テスト実行
+
+```bash
+npm run test
+```
