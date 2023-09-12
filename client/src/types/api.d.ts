@@ -13,7 +13,7 @@ export type PrefectureResponse = ResasApiResponse<Prefecture[]>
 export type PopulationResponse = ResasApiResponse<{
   boundaryYear: number
   data: {
-    label: "" // TODO: ユニオン型で型定義すること
+    label: "総人口"|"年少人口"|"総人口"|"老年人口" // TODO: ユニオン型で型定義すること
     data: Population[]
   }[]
 }>
