@@ -4,6 +4,8 @@
     <div class="header-container">
       <h1 class="header-title">タイトル</h1>
       <!-- TODO: 各ページのリンクを書いてみましょう -->
+      <router-link to=""></router-link>
+      <router-link to=""></router-link>
     </div>
   </header>
 </template>
