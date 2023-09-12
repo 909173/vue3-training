@@ -1,5 +1,14 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
+import axiosInstance from "@/utils/axiosSettings"
+import { PrefectureDisplay } from "@/types/prefecture"
+// TODO: prefectureで千葉県を表示してみましょう
+const prefecture = ref<PrefectureDisplay>({})
+
+onMounted(() => {
+  // TODO: 全県取得のAPIへリクエストを送ってみましょう!
+  const response = axiosInstance.get("")
+})
 </script>
 <template>
   <div class="prefecture-container">
