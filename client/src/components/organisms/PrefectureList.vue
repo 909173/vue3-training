@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue"
+import PrefectureCheck from "./PrefectureCheck.vue"
 import axiosInstance from "@/utils/axiosSettings"
 import { PrefectureDisplay } from "@/types/prefecture"
 import { PrefectureResponse } from "@/types/api"
@@ -10,28 +11,7 @@ const prefecture = ref<PrefectureDisplay>({
   prefName: "千葉県"
 })
 
-const prefectureList = ref<PrefectureDisplay[]>([
-  {
-    isCheck: false,
-    prefCode: 12,
-    prefName: "千葉県"
-  },
-  {
-    isCheck: false,
-    prefCode: 13,
-    prefName: "東京都"
-  },
-  {
-    isCheck: false,
-    prefCode: 14,
-    prefName: "神奈川県"
-  },
-  {
-    isCheck: false,
-    prefCode: 15,
-    prefName: "埼玉県"
-  }
-])
+const prefectureList = ref<PrefectureDisplay[]>([])
 const checkedPrefectureList = computed(() => {
   return prefectureList.value.filter((pref) => {
     return pref.isCheck
@@ -50,24 +30,39 @@ onMounted(async () => {
     isCheck: false
   }))
 })
+
+function handleCheck(pref: PrefectureDisplay) {
+  const index = prefectureList.value.findIndex(
+    (x) => x.prefCode === pref.prefCode
+  )
+  if (index === -1) return
+  prefectureList.value[index].isCheck = pref.isCheck
+}
+
+function handleCheck2(index: number, pref: PrefectureDisplay) {
+  prefectureList.value[index].isCheck = pref.isCheck
+}
 </script>
 <template>
   <div class="prefecture-container">
     <h3>都道府県</h3>
     <div class="prefecture-flex">
       <!-- TODO: 県を表示してみましょう -->
-      <div v-for="pref in prefectureList" :key="pref.prefCode">
-        {{ pref.prefName }}
+      <div v-for="(pref, index) in prefectureList" :key="pref.prefCode">
+        <!-- {{ pref.prefName }}
         <input v-model="pref.isCheck" type="checkbox" />
+        {{ pref.isCheck }} -->
+        <PrefectureCheck
+          :prefecture="pref"
+          @check="handleCheck2(index, $event)"
+        ></PrefectureCheck>
         {{ pref.isCheck }}
       </div>
     </div>
-    <div
-      v-for="uncheckedPref in checkedPrefectureList"
-      :key="uncheckedPref.prefCode"
-    >
-      {{ uncheckedPref.prefName }}
-    </div>
+    <PrefectureCheck
+      v-if="prefectureList.length > 0"
+      :prefecture="prefectureList[0]"
+    ></PrefectureCheck>
   </div>
 </template>
 <style scoped>
