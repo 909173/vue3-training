@@ -2,8 +2,9 @@ import { ref } from "vue"
 import { ChartAPI } from "c3"
 import { defineStore } from "pinia"
 import { PrefectureDisplay } from "@/types/prefecture"
-import { Population, PopulationDisplay } from "@/types/population"
+import { PopulationDisplay } from "@/types/population"
 import axiosInstance from "@/utils/axiosSettings"
+import { PopulationResponse } from "@/types/api"
 
 export const usePopulationStore = defineStore("population", () => {
   const population = ref<PopulationDisplay[]>([])
@@ -30,7 +31,7 @@ export const usePopulationStore = defineStore("population", () => {
     c3graphData.value.unload([`${arg.prefName}`])
   }
   async function fetchPopulation(arg: PrefectureDisplay) {
-    const response = await axiosInstance.get<Population>(
+    const response = await axiosInstance.get<PopulationResponse>(
       "population/composition/perYear",
       {
         params: {
