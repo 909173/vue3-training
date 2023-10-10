@@ -2,6 +2,8 @@
 import "c3/c3.css"
 import { ChartConfiguration, generate } from "c3"
 import { onMounted, ref } from "vue"
+import { usePopulationStore } from "@/store/population"
+const populationStore = usePopulationStore()
 const c3GraphConfig = ref<ChartConfiguration>({
   bindto: "#c3-graph",
   data: {
@@ -32,6 +34,7 @@ const c3GraphConfig = ref<ChartConfiguration>({
 function initC3Graph() {
   const graphData = generate(c3GraphConfig.value)
   // TODO: グラフをstoreに保存してみましょう。
+  populationStore.c3graphData = graphData
 }
 onMounted(() => {
   initC3Graph()
