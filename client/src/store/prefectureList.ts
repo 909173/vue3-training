@@ -2,14 +2,18 @@ import { defineStore } from "pinia"
 import { ref } from "vue"
 import axiosInstance from "../utils/axiosSettings"
 import { PrefectureDisplay } from "@/types/prefecture"
+import { PrefectureResponse } from "@/types/api"
 export const usePrefectureStore = defineStore("prefectureList", () => {
   // TODO: Storeの中身を書くこと
   const prefectureList = ref<PrefectureDisplay[]>([])
 
   // 人口の取得
   async function fetchPrefectureList() {
-    const res = await axiosInstance.get("/prefectures")
-    prefectureList.value = res.data.result
+    const response = await axiosInstance.get<PrefectureResponse>("/prefectures")
+    prefectureList.value = response.data.result.map((x) => ({
+      ...x,
+      isCheck: false
+    }))
   }
   // チェックの値を変更する
   function checkPrefecture(prefCode: number, value: boolean) {
